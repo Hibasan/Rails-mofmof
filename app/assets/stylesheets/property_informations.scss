@@ -1,0 +1,62 @@
+ul{
+  list-style: none;
+}
+
+.rent_container{
+  width:100%;
+}
+
+.rents_container td{
+  padding:10px 0;
+}
+
+.name{
+width:70px;
+}
+
+.rent{
+width: 70px;
+}
+
+.address{
+width: 110px;
+}
+
+.age{
+width: 35px;
+}
+
+.container{
+  margin:0 15px;
+}
+
+.property{
+  height: auto;
+  border-bottom: 1px solid;
+}
+
+.rent_title{
+  margin:5px 0;
+}
+
+.station{
+  height: 200px;
+}
+
+.property li{
+  margin:20px 0;
+}
+
+.station li{
+  margin:25px 0;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.flex {
+  display: flex;
+}
