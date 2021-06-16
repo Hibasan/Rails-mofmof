@@ -6,8 +6,7 @@ class PropertyInformationsController < ApplicationController
 
   def new
     @rent = PropertyInformation.new
-    @rent.nearest_stations.build
-    @rent.nearest_stations.build
+    2.times {@rent.nearest_stations.build}
   end
 
   def create
@@ -16,8 +15,7 @@ class PropertyInformationsController < ApplicationController
       redirect_to property_informations_path, notice: "物件を登録しました！"
     else
       if @rent.nearest_stations[0].nil? && @rent.nearest_stations[1].nil?
-        @rent.nearest_stations.build
-        @rent.nearest_stations.build
+        2.times {@rent.nearest_stations.build}
       elsif  @rent.nearest_stations[0].nil? || @rent.nearest_stations[1].nil?
         @rent.nearest_stations.build
       end
@@ -28,14 +26,11 @@ class PropertyInformationsController < ApplicationController
   def show
     @rent = PropertyInformation.find(params[:id])
     @stations = @rent.nearest_stations
-
   end
 
   def edit
     @rent = PropertyInformation.find(params[:id])
-    i = 2-@rent.nearest_stations.count
-    i.times {@rent.nearest_stations.build}
-
+    @rent.nearest_stations.build
   end
 
   def update
@@ -44,8 +39,7 @@ class PropertyInformationsController < ApplicationController
       redirect_to property_informations_path, notice: "物件情報を編集しました！"
     else
       if @rent.nearest_stations[0].nil? && @rent.nearest_stations[1].nil?
-        @rent.nearest_stations.build
-        @rent.nearest_stations.build
+        2.times {@rent.nearest_stations.build}
       elsif  @rent.nearest_stations[0].nil? || @rent.nearest_stations[1].nil?
         @rent.nearest_stations.build
       end
