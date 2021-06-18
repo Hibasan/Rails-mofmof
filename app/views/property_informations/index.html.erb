@@ -1,0 +1,27 @@
+<h1>物件一覧</h1>
+<p><%= notice %></p>
+<div class="rent_container">
+<table>
+  <tr>
+    <th class="name">物件名</th>
+    <th class="rent">賃料</th>
+    <th class="address">住所</th>
+    <th class="age">築年数</th>
+    <th class="note">備考</th>
+  </tr>
+<% @rents.each do |rent| %>
+  <tr class="rents_container">
+    <td class="name"><%= rent.property_name %></td>
+    <td class="rent"><%= rent.rent.to_s(:delimited)%>円</td>
+    <td class="address"><%= rent.address %></td>
+    <td class="age"><%= rent.age %>年</td>
+    <td class="note"><%= rent.note %></td>
+    <td><%= link_to '詳細', property_information_path(rent.id) %></td>
+    <td><%= link_to '編集', edit_property_information_path(rent.id) %></td>
+    <td><%= link_to '削除', property_information_path(rent.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br>
+<%= link_to '物件を登録する', new_property_information_path %>
